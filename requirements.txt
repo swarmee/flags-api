@@ -1,0 +1,2 @@
+flask-restplus==0.13.0
+gunicorn==19.9.0

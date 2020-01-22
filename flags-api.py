@@ -16,8 +16,8 @@ api = Api(app,
           title='World Flags API', 
           description='Provide a country code get a flag', 
           prefix="/v1",
-          contact="john@swarmee.net",
-          contact_url="www.swarmee.net"
+#          contact="john@swarmee.net",
+#          contact_url="www.swarmee.net"
          # ,          doc='/doc/'
          )
 app.wsgi_app = ProxyFix(app.wsgi_app)
@@ -37,7 +37,7 @@ class countryFlag(Resource):
         fileType = 'jpeg'
     res = make_response(send_file('./images/' + countryCode + '.'+ fileType, 
                                   attachment_filename=countryCode +'.'+ fileType,
-                                  as_attachment=True,
+                                  as_attachment=False,
                                   add_etags=False,
                                   cache_timeout=0)  )
     res.headers['Access-Control-Allow-Origin'] =  "*"

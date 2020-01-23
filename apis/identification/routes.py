@@ -4,7 +4,7 @@ import json
 
 api = Namespace('identification', description='Identification Type End Points')
 
-validIdentificationCodes = ['lei', 'birthDate', 'australianBusinessNumber', 'phoneNumber', ]
+validIdentificationCodes = ['lei', 'birthDate', 'australianBusinessNumber', 'phoneNumber']
 
 api_params = api.parser()
 # Look only in the querystring

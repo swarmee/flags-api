@@ -4,7 +4,7 @@ import json
 
 api = Namespace('identification', description='Identification Type End Points')
 
-validIdentificationCodes = ['asic', 'd', 'dob']
+validIdentificationCodes = ['lei', 'birthDate', 'australianBusinessNumber', 'phoneNumber', ]
 
 api_params = api.parser()
 # Look only in the querystring
@@ -23,7 +23,7 @@ class countryFlag(Resource):
         fileType = args['format']
         if fileType is None or fileType not in ['png', 'svg']:
             fileType = 'png'
-        identificationCode = identificationcode.lower()
+#        identificationCode = identificationcode.lower()
         if identificationCode not in validIdentificationCodes:
             entityCode = 'u'
             fileType = 'png'

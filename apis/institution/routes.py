@@ -2,7 +2,7 @@ from flask_restplus import Namespace, Resource, fields, reqparse
 from flask import make_response, send_file
 import json
 
-api = Namespace('entity', description='Entity Type End Points')
+api = Namespace('institution', description='Institution Graphic End Points')
 
 validEntityCodes = ['b', 'm', 'f']
 
@@ -23,7 +23,7 @@ class countryFlag(Resource):
         fileType = args['format']
         if fileType is None or fileType not in ['png', 'svg']:
             fileType = 'png'
-        entityCode = entitycode
+        entityCode = entitycode.lower()
         if entityCode not in validEntityCodes:
             entityCode = 'u'
             fileType = 'png'

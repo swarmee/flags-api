@@ -4,7 +4,7 @@ import json
 
 api = Namespace('entity', description='Entity Type End Points')
 
-validEntityCodes = ['b', 'm', 'f']
+validEntityCodes = ['b', 'm', 'f', 'individual', 'business']
 
 api_params = api.parser()
 # Look only in the querystring

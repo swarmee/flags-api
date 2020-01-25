@@ -27,7 +27,7 @@ class countryFlag(Resource):
         fileType = args['format']
         if fileType is None or fileType not in ['png', 'svg']:
             fileType = 'png'
-        networkName = networkname.lower()
+        #networkName = networkname.lower()
         if networkName not in validNetworkNames:
             networkName = 'unknown'
             fileType = 'png'

@@ -7,7 +7,7 @@ api = Namespace('payment_network',
 
 validNetworkNames = [
     "swift", "alipay", "currencyFair", "hifx", "moneyGram", "ofx", "paypal",
-    "transFast", "transferWise", "westernUnion", "worldRemit"
+    "transFast", "transferWise", "westernUnion", "worldRemit", 'xe'
 ]
 
 api_params = api.parser()

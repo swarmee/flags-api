@@ -22,14 +22,14 @@ api_params.add_argument('format',
 @api.route('/name/<networkname>')
 class countryFlag(Resource):
     @api.expect(api_params)
-    def get(self, entitycode):
+    def get(self, networkname):
         args = api_params.parse_args()
         fileType = args['format']
         if fileType is None or fileType not in ['png', 'svg']:
             fileType = 'png'
         networkName = networkname.lower()
         if networkName not in validNetworkNames:
-            networkName = 'u'
+            networkName = 'unknown'
             fileType = 'png'
         res = make_response(
             send_file('./images/payment_network/' + networkName + '.' +

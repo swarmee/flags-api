@@ -1,7 +1,7 @@
 from flask_restplus import Api
 from apis.country import *
 from apis.entity import *
-from apis.institution import *
+from apis.payment_network import *
 from apis.identification import *
 
 api = Api(
@@ -17,4 +17,4 @@ api = Api(
 api.add_namespace(entity, path='/entity')
 api.add_namespace(country, path='/country')
 api.add_namespace(identification, path='/identification')
-api.add_namespace(institution, path='/institution')
+api.add_namespace(payment_network, path='/payment_network')

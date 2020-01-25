@@ -2,9 +2,9 @@ from flask_restplus import Namespace, Resource, fields, reqparse
 from flask import make_response, send_file
 import json
 
-api = Namespace('institution', description='Institution Graphic End Points')
+api = Namespace('payment_network', description='Payment Network Graphic End Points')
 
-validEntityCodes = ['b', 'm', 'f']
+validNetworkNames = ['swift", "alipay","currencyFair","hifx","moneyGram","ofx", "paypal", "transFast", "transferWise","westernUnion"]
 
 api_params = api.parser()
 # Look only in the querystring
@@ -13,9 +13,8 @@ api_params.add_argument('format',
                         location='args',
                         help='lower case svg or png')
 
-
-##### Simple Entity Type to Graphic API
-@api.route('/code/<entitycode>')
+##### Simple Network to Graphic API
+@api.route('/name/<networkname>')
 class countryFlag(Resource):
     @api.expect(api_params)
     def get(self, entitycode):
@@ -23,13 +22,13 @@ class countryFlag(Resource):
         fileType = args['format']
         if fileType is None or fileType not in ['png', 'svg']:
             fileType = 'png'
-        entityCode = entitycode.lower()
-        if entityCode not in validEntityCodes:
-            entityCode = 'u'
+        networkName = networkname.lower()
+        if networkName not in validNetworkNames:
+            networkName = 'u'
             fileType = 'png'
         res = make_response(
-            send_file('./images/entity_types/' + entityCode + '.' + fileType,
-                      attachment_filename=entityCode + '.' + fileType,
+            send_file('./images/payment_network/' + networkName + '.' + fileType,
+                      attachment_filename=networkName + '.' + fileType,
                       as_attachment=False,
                       add_etags=False,
                       cache_timeout=0))

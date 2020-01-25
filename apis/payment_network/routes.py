@@ -2,9 +2,13 @@ from flask_restplus import Namespace, Resource, fields, reqparse
 from flask import make_response, send_file
 import json
 
-api = Namespace('payment_network', description='Payment Network Graphic End Points')
+api = Namespace('payment_network',
+                description='Payment Network Graphic End Points')
 
-validNetworkNames = ['swift", "alipay","currencyFair","hifx","moneyGram","ofx", "paypal", "transFast", "transferWise","westernUnion"]
+validNetworkNames = [
+    "swift", "alipay", "currencyFair", "hifx", "moneyGram", "ofx", "paypal",
+    "transFast", "transferWise", "westernUnion"
+]
 
 api_params = api.parser()
 # Look only in the querystring
@@ -12,6 +16,7 @@ api_params.add_argument('format',
                         required=False,
                         location='args',
                         help='lower case svg or png')
+
 
 ##### Simple Network to Graphic API
 @api.route('/name/<networkname>')
@@ -27,7 +32,8 @@ class countryFlag(Resource):
             networkName = 'u'
             fileType = 'png'
         res = make_response(
-            send_file('./images/payment_network/' + networkName + '.' + fileType,
+            send_file('./images/payment_network/' + networkName + '.' +
+                      fileType,
                       attachment_filename=networkName + '.' + fileType,
                       as_attachment=False,
                       add_etags=False,

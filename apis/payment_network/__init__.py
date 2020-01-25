@@ -1,1 +1,1 @@
-from apis.institution.routes import api as institution
+from apis.payment_network.routes import api as payment_network

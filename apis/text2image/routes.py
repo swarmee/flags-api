@@ -20,8 +20,8 @@ def create_image(imageText):
     imageText = imageText.upper()
     d.text((2, 0),
            imageText,
-           fill=(255, 255, 0),
-           align="center"
+           fill=(10, 255, 0),
+           align="center",
            font=ImageFont.truetype("./apis/text2image/Verdana.ttf", 16))
     # create file-object in memory
     file_object = io.BytesIO()

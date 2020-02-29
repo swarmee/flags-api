@@ -3,6 +3,7 @@ from flask import make_response, send_file
 import json
 import io
 from PIL import Image, ImageDraw, ImageFont
+import functools
 
 api = Namespace('text2image', description='Convert Text to Image End Point')
 
@@ -14,7 +15,9 @@ api_params.add_argument('format',
                         help='lower case svg or png')
 
 
+@functools.lru_cache(maxsize=256)
 def create_image(imageText):
+    print('creating image')
     img = Image.new('RGB', (25, 20), (255, 255, 255, 0))
     d = ImageDraw.Draw(img)
     imageText = imageText.upper()

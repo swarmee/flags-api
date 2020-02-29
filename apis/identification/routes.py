@@ -15,8 +15,9 @@ api_params.add_argument('format',
                         location='args',
                         help='lower case svg or png')
 
-
 ##### Simple Entity Type to Graphic API
+
+
 @api.route('/code/<identificationcode>')
 class countryFlag(Resource):
     @api.expect(api_params)
@@ -27,7 +28,6 @@ class countryFlag(Resource):
             fileType = 'png'
 
         identificationCode = identificationcode
-        print(identificationcode)
         if identificationCode not in validIdentificationCodes:
             entityCode = 'u'
             fileType = 'png'

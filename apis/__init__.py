@@ -1,4 +1,4 @@
-from flask_restplus import Api
+from flask_restx import Api
 from apis.country import *
 from apis.entity import *
 from apis.payment_network import *

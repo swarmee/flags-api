@@ -28,7 +28,7 @@ api_params.add_argument('format',
 
 
 def create_image(imageText):
-    print('creating image')
+    #print('creating image')
     img = Image.new('RGB', (25, 20), (255, 255, 255, 0))
     d = ImageDraw.Draw(img)
     imageText = imageText.upper()
@@ -79,9 +79,9 @@ class countryFlag(Resource):
         if len(imageText) > 2:
             imageText = imageText[0:2]
         imageText = imageText.upper()
-        print(preGeneratedImagesList)
-        print('-----')
-        print(imageText)
+        #print(preGeneratedImagesList)
+        #print('-----')
+        #print(imageText)
         if imageText not in preGeneratedImagesList:
             imageText = '?'
             fileType = 'png'

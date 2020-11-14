@@ -5,7 +5,7 @@ import json
 api = Namespace('identification', description='Identification Type End Points')
 
 validIdentificationCodes = [
-    'lei', 'birthDate', 'australianBusinessNumber', 'phoneNumber'
+    'lei', 'birthDate', 'australianBusinessNumber', 'phoneNumber', 'benefitsCard'
 ]
 
 api_params = api.parser()
